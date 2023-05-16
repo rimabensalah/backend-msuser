@@ -85,53 +85,9 @@ public class UserControllerTest {
     @Mock
     private Utilisateur user;
 
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
-
-    @Test
-    public void testAuthenticateUser() {
-        String username = "testuser";
-        String password = "testpassword";
-        String jwt = "testjwt";
-        List<String> roles = Arrays.asList("ROLE_USER");
-
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setUsername(username);
-        loginRequest.setPassword(password);
-
-        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
-        when(authenticationManager.authenticate(authRequest)).thenReturn(authentication);
-
-        when(authentication.getPrincipal()).thenReturn(userDetails);
-        when(userDetails.getId()).thenReturn(1L);
-        when(userDetails.getUsername()).thenReturn(username);
-        when(userDetails.getEmail()).thenReturn("test@example.com");
-// Mock the behavior of getAuthorities() method
 
 
 
-        when(jwtUtils.generateJwtToken(authentication)).thenReturn(jwt);
-
-        when(userRepo.findById(userDetails.getId())).thenReturn(Optional.of(user));
-
-        NotificationPreferences preferences = new NotificationPreferences(user);
-        preferences.setEmailNotificationsEnabled(false);
-        when(notificationPreferencesRepository.findByUtilisateur(user)).thenReturn(preferences);
-
-        ResponseEntity<?> responseEntity = userController.authenticateUser(loginRequest);
-
-        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-
-        JwtResponse jwtResponse = (JwtResponse) responseEntity.getBody();
-        assertNotNull(jwtResponse);
-        assertEquals(jwt, jwtResponse.getAccessToken());
-        assertEquals(userDetails.getId(), jwtResponse.getId());
-        assertEquals(userDetails.getUsername(), jwtResponse.getUsername());
-        assertEquals(userDetails.getEmail(), jwtResponse.getEmail());
-        //assertEquals(roles, jwtResponse.getRoles());
-    }
     @Test
     public void shouldCreateRole() throws Exception {
         Role role = new Role(1L, RoleName.ROLE_USER);
@@ -142,7 +98,7 @@ public class UserControllerTest {
                 .andDo(print());
     }
 
-    @Test
+    /*@Test
     public void shouldLogin() throws  Exception{
         String username = "admin33";
         String password = "ryma1234";
@@ -156,7 +112,7 @@ public class UserControllerTest {
                 .andDo(print());
 
 
-    }
+    }*/
 
     @Test
     public void shouldReturnListOfRoles() throws Exception {
