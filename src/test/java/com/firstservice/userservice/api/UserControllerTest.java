@@ -3,18 +3,9 @@ package com.firstservice.userservice.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.firstservice.userservice.domain.Role;
 import com.firstservice.userservice.domain.RoleName;
-import com.firstservice.userservice.domain.Utilisateur;
-import com.firstservice.userservice.payload.request.LoginRequest;
-import com.firstservice.userservice.repository.NotificationPreferencesRepository;
 import com.firstservice.userservice.repository.RoleRepository;
-import com.firstservice.userservice.repository.UserRepository;
-import com.firstservice.userservice.security.jwt.JwtUtils;
-import com.firstservice.userservice.service.UserDetailsImpl;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -29,16 +20,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.junit.runner.RunWith;
 
 
-//@WebMvcTest(UserController.class)
-@RunWith(SpringRunner.class)
-@AutoConfigureMockMvc
 @SpringBootTest
+@AutoConfigureMockMvc
 public class UserControllerTest {
     @MockBean
     private RoleRepository roleRepository;
