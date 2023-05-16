@@ -12,7 +12,7 @@ import com.firstservice.userservice.domain.RoleName;
 
 
 
-
+@Repository
 public interface RoleRepository extends JpaRepository<Role,Long>{
 	Optional<Role> findByName(RoleName name);
 	List<Role> findAll();
