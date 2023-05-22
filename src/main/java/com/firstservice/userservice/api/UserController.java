@@ -499,12 +499,12 @@ public class UserController {
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
 
-        Utilisateur user=userRepo.findById(userDetails.getId()).get();
+       /* Utilisateur user=userRepo.findById(userDetails.getId()).get();
         NotificationPreferences preferences = notificationPreferencesRepository.findByUtilisateur(user);
         preferences = new NotificationPreferences(user);
         preferences.setEmailNotificationsEnabled(false);
 
-        notificationPreferencesRepository.save(preferences);
+        notificationPreferencesRepository.save(preferences);*/
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
