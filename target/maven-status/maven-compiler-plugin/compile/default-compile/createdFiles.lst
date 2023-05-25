@@ -4,7 +4,9 @@ com\firstservice\userservice\payload\response\JwtResponse.class
 com\firstservice\userservice\domain\Compte.class
 com\firstservice\userservice\payload\request\LoginRequest.class
 com\firstservice\userservice\api\UserController.class
+com\firstservice\userservice\payload\request\ResetPasswordRequest.class
 com\firstservice\userservice\payload\request\SearchRequest.class
+com\firstservice\userservice\config\EmailConfig.class
 com\firstservice\userservice\payload\response\FileResponse.class
 com\firstservice\userservice\domain\TextMessageDTO.class
 com\firstservice\userservice\repository\RoleRepository.class
@@ -14,10 +16,12 @@ com\firstservice\userservice\service\CompteServiceImpl.class
 com\firstservice\userservice\repository\UserRepository.class
 com\firstservice\userservice\service\FileServiceImpl.class
 com\firstservice\userservice\domain\Utilisateur.class
+com\firstservice\userservice\api\ForgotPasswordController.class
 com\firstservice\userservice\security\jwt\AuthTokenFilter.class
 com\firstservice\userservice\security\SecurityConfig.class
 com\firstservice\userservice\service\UserDetailsImpl.class
 com\firstservice\userservice\domain\Profession.class
+com\firstservice\userservice\payload\request\ForgotPasswordRequest.class
 com\firstservice\userservice\service\CompteService.class
 com\firstservice\userservice\domain\RoleName.class
 com\firstservice\userservice\UserserviceApplication.class
@@ -27,6 +31,7 @@ com\firstservice\userservice\repository\CompteRepository.class
 com\firstservice\userservice\service\NotificationPreferencesService.class
 com\firstservice\userservice\service\UserDetailsServiceImpl.class
 com\firstservice\userservice\repository\NotificationPreferencesRepository.class
+com\firstservice\userservice\payload\response\BadRequestException.class
 com\firstservice\userservice\payload\response\MessageResponse.class
 com\firstservice\userservice\service\UserService.class
 com\firstservice\userservice\domain\Status.class

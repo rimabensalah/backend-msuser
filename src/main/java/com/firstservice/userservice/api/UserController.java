@@ -69,6 +69,7 @@ public class UserController {
     NotificationPreferencesService notificationPreferencesService;
     @Autowired
     private NotificationPreferencesRepository notificationPreferencesRepository;
+
     private Sort.Direction getSortDirection(String direction) {
         if (direction.equals("asc")) {
             return Sort.Direction.ASC;
@@ -661,6 +662,11 @@ public class UserController {
 
     }
 
+    @GetMapping("/getrecentuser")
+    public ResponseEntity<?> getRecentUser(){
+        List<Utilisateur> user = userRepo.findTop5ByOrderByUserCompteCreatedDateDesc();
+        return  new ResponseEntity<>(user,HttpStatus.OK);
+    }
     //areEmailNotificationsEnabled
     @GetMapping("/enablesendmail/{userid}")
     public ResponseEntity<?> areEmailNotificationsEnabled(

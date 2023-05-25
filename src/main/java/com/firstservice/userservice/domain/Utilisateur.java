@@ -25,6 +25,7 @@ public class Utilisateur implements Serializable {
     private String email;
     @Size(max = 120)
     private String password;
+    private String resetToken;
     //@ManyToMany
     //@CascadeOnDelete (fetch = FetchType.EAGER)
 
@@ -75,8 +76,13 @@ public class Utilisateur implements Serializable {
         this.password = password;
     }
 
+    public String getResetToken() {
+        return resetToken;
+    }
 
-
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
 
     public Utilisateur(@Size(max = 20) String username, @Size(max = 50) String email,
                        @Size(max = 120) String password) {
