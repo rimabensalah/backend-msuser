@@ -25,7 +25,7 @@ public class MailService {
         Content content = new Content("text/plain", "This is a test email");
         Mail mail = new Mail(from, subject, to, content);
 
-        SendGrid sg = new SendGrid("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");
+        SendGrid sg = new SendGrid("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");
         Request request = new Request();
         try {
             request.setMethod(Method.POST);
@@ -41,7 +41,7 @@ public class MailService {
     public String send() throws IOException {
         // the sender email should be the same as we used to Create a Single Sender Verification
         Email from = new Email("rymabnslh@gmail.com");
-        Email to = new Email("rymabnslh@gmail.com");
+        Email to = new Email("rymbnslh@gmail.com");
         Mail mail = new Mail();
         // we create an object of our static class feel free to change the class on it's own file
         // I try to keep every think simple
@@ -54,7 +54,7 @@ public class MailService {
         mail.addPersonalization(personalization);
         mail.setTemplateId("d-8f484c59da9d41e1b87c5a573cbad2e8");
         // this is the api key
-        SendGrid sg = new SendGrid("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");
+        SendGrid sg = new SendGrid("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");
         Request request = new Request();
 
         try {

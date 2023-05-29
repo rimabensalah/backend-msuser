@@ -51,7 +51,7 @@ public class ForgotPasswordController {
             userRepo.save(user);
 
 
-            sendPasswordResetEmail2("rymabnslh@gmail.com", resetToken);
+            sendPasswordResetEmail2("rymbnslh@gmail.com", resetToken);
         } else {
             throw new BadRequestException("Email is required.");
         }
@@ -121,7 +121,7 @@ public class ForgotPasswordController {
         Content content = new Content("text/plain", plainTextContent);
         Mail mail = new Mail(from, subject, to, content);
 
-        SendGrid sg = new SendGrid("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"); // Remplacez par votre clé d'API SendGrid
+        SendGrid sg = new SendGrid("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"); // Remplacez par votre clé d'API SendGrid
         Request request = new Request();
 
         try {

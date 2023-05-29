@@ -19,14 +19,18 @@ com\firstservice\userservice\domain\Utilisateur.class
 com\firstservice\userservice\api\ForgotPasswordController.class
 com\firstservice\userservice\security\jwt\AuthTokenFilter.class
 com\firstservice\userservice\security\SecurityConfig.class
+com\firstservice\userservice\service\MailService$DynamicTemplatePersonalization.class
 com\firstservice\userservice\service\UserDetailsImpl.class
 com\firstservice\userservice\domain\Profession.class
 com\firstservice\userservice\payload\request\ForgotPasswordRequest.class
+com\firstservice\userservice\api\ResetPasswordController.class
 com\firstservice\userservice\service\CompteService.class
 com\firstservice\userservice\domain\RoleName.class
+com\firstservice\userservice\service\MailService.class
 com\firstservice\userservice\UserserviceApplication.class
 com\firstservice\userservice\repository\FileRepository.class
 com\firstservice\userservice\domain\NotificationPreferences.class
+com\firstservice\userservice\api\MailController.class
 com\firstservice\userservice\repository\CompteRepository.class
 com\firstservice\userservice\service\NotificationPreferencesService.class
 com\firstservice\userservice\service\UserDetailsServiceImpl.class
@@ -34,6 +38,7 @@ com\firstservice\userservice\repository\NotificationPreferencesRepository.class
 com\firstservice\userservice\payload\response\BadRequestException.class
 com\firstservice\userservice\payload\response\MessageResponse.class
 com\firstservice\userservice\service\UserService.class
+com\firstservice\userservice\service\MailService$1.class
 com\firstservice\userservice\domain\Status.class
 com\firstservice\userservice\security\jwt\AuthEntryPointJwt.class
 com\firstservice\userservice\service\UserServiceImpl.class

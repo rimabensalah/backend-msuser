@@ -28,10 +28,13 @@ C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\fi
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\repository\RoleRepository.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\service\UserDetailsImpl.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\payload\response\FileResponse.java
+C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\api\MailController.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\domain\UserImage.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\domain\Role.java
+C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\api\ResetPasswordController.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\service\FileServiceImpl.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\security\jwt\AuthTokenFilter.java
+C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\service\MailService.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\domain\Compte.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\payload\response\MessageResponse.java
 C:\Users\rbensalah\Desktop\backend\userservice\userservice2\src\main\java\com\firstservice\userservice\repository\FileRepository.java
