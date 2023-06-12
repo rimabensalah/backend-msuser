@@ -29,6 +29,7 @@ public class NotificationPreferencesService {
     public NotificationPreferences updateEmailNotificationsEnabled(Long id, boolean emailNotificationsEnabled) {
         NotificationPreferences notificationPreferences = notificationPreferencesRepository.findByUtilisateurId(id);
         if (notificationPreferences != null) {
+
             notificationPreferences.setEmailNotificationsEnabled(emailNotificationsEnabled);
             return notificationPreferencesRepository.save(notificationPreferences);
         } else {

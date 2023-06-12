@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.firstservice.userservice.UserserviceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.297 s - in com.firstservice.userservice.UserserviceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.837 s - in com.firstservice.userservice.UserserviceApplicationTests

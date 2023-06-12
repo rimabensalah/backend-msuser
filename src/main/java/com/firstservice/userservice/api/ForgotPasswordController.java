@@ -121,7 +121,7 @@ public class ForgotPasswordController {
         Content content = new Content("text/plain", plainTextContent);
         Mail mail = new Mail(from, subject, to, content);
 
-        SendGrid sg = new SendGrid("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"); // Remplacez par votre clé d'API SendGrid
+        SendGrid sg = new SendGrid("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"); // Remplacez par votre clé d'API SendGrid
         Request request = new Request();
 
         try {
@@ -143,7 +143,7 @@ public class ForgotPasswordController {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         // Configure API key authorization: api-key
         ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-        apiKey.setApiKey("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");
+        apiKey.setApiKey("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");
 
         try {
             TransactionalEmailsApi api = new TransactionalEmailsApi();

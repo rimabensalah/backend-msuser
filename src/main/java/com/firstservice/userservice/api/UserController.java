@@ -500,6 +500,14 @@ public class UserController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
+        Utilisateur user = userRepo.findById(userDetails.getId()).get();
+        NotificationPreferences notificationPreferences2 =notificationPreferencesRepository.findByUtilisateur(user);
+        if((notificationPreferences2)==null){
+            NotificationPreferences notificationPreferences = new NotificationPreferences(true,user);
+            notificationPreferencesRepository.save(notificationPreferences);
+        }
+
+
 
 
         return ResponseEntity.ok(new JwtResponse(jwt,
@@ -687,16 +695,28 @@ public class UserController {
     public  Map<String,Object>  totaluser(){
         return userService.displayuserStats();
     }
+
+    @GetMapping("/getnotifstatus/{userid}")
+    public ResponseEntity<NotificationPreferences> EmailNotificationsEnabled(@PathVariable Long userid){
+        NotificationPreferences usernotificationpreferences = notificationPreferencesRepository.findByUtilisateurId(userid);
+        if(usernotificationpreferences != null){
+            return new ResponseEntity<>(usernotificationpreferences, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
     @PutMapping("/{utilisateurId}/emailnotifications")
     public ResponseEntity<NotificationPreferences> updateEmailNotificationsEnabled(@PathVariable Long utilisateurId,
                                                                                    @RequestParam boolean emailNotificationsEnabled) {
         NotificationPreferences updatedNotificationPreferences = notificationPreferencesService.updateEmailNotificationsEnabled(utilisateurId, emailNotificationsEnabled);
-        if (updatedNotificationPreferences != null) {
-            return new ResponseEntity<>(updatedNotificationPreferences, HttpStatus.OK);
+            if (updatedNotificationPreferences != null) {
+                return new ResponseEntity<>(updatedNotificationPreferences, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+
 
 
 }
