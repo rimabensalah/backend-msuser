@@ -25,7 +25,7 @@ public class MailService {
         Content content = new Content("text/plain", "This is a test email");
         Mail mail = new Mail(from, subject, to, content);
 
-        SendGrid sg = new SendGrid("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");
+        SendGrid sg = new SendGrid("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");
         Request request = new Request();
         try {
             request.setMethod(Method.POST);
@@ -54,7 +54,7 @@ public class MailService {
         mail.addPersonalization(personalization);
         mail.setTemplateId("d-8f484c59da9d41e1b87c5a573cbad2e8");
         // this is the api key
-        SendGrid sg = new SendGrid("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");
+        SendGrid sg = new SendGrid("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");
         Request request = new Request();
 
         try {
