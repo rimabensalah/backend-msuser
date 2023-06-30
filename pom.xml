@@ -137,6 +137,8 @@
 			<artifactId>sendinblue</artifactId>
 			<version>2.0</version>
 		</dependency>
+
+
 		<dependency>
 			<groupId>com.sendinblue</groupId>
 			<artifactId>sib-api-v3-sdk</artifactId>
@@ -148,6 +150,8 @@
 			<artifactId>sendgrid-java</artifactId>
 			<version>4.0.1</version>
 		</dependency>
+
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -160,7 +164,12 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+	<distributionManagement>
+		<snapshotRepository>
+			<id>soprahr-snapshots</id>
+			<url>http://hra-nexus.ptx.fr.sopra/content/repositories/soprahr-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>

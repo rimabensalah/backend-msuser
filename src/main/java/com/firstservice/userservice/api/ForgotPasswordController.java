@@ -50,10 +50,45 @@ public class ForgotPasswordController {
             user.setResetToken(resetToken);
             userRepo.save(user);
 
+            String subject = "Password Reset";
+            String plainTextContent = "Please click on the following link to reset your password: " +
+                    "http://localhost:3000/resetpassword?token=" + resetToken; // Remplacez par votre URL de réinitialisation de mot de passe
+            //sendPasswordResetEmail2("rymbnslh@gmail.com", resetToken);
 
-            sendPasswordResetEmail2("rymbnslh@gmail.com", resetToken);
+            sendMail(subject,"ryma","rymabnslh@gmail.com",plainTextContent);
         } else {
             throw new BadRequestException("Email is required.");
+        }
+    }
+    public void sendMail(String subject, String recepientName, String recepientEmail, String content) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure API key authorization: api-key
+        ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+        apiKey.setApiKey("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");
+
+        try {
+            TransactionalEmailsApi api = new TransactionalEmailsApi();
+            SendSmtpEmailSender sender = new SendSmtpEmailSender();
+            sender.setEmail("rymabnslh@gmail.com");
+            sender.setName("Ryma");
+            List<SendSmtpEmailTo> toList = new ArrayList<>();
+            SendSmtpEmailTo to = new SendSmtpEmailTo();
+            to.setEmail(recepientEmail); // to make dynamic
+            to.setName(recepientName); // to make dynamic
+            toList.add(to);
+
+            SendSmtpEmail sendSmtpEmail = new SendSmtpEmail();
+            sendSmtpEmail.setSender(sender);
+            sendSmtpEmail.setTo(toList);
+            // sendSmtpEmail.setTemplateId(1L);
+            sendSmtpEmail.setHtmlContent("<html><body>" + content + "</body></html>");
+            sendSmtpEmail.setSubject(subject);
+
+            CreateSmtpEmail response = api.sendTransacEmail(sendSmtpEmail);
+            System.out.println(response.toString());
+        } catch (Exception e) {
+            System.out.println("Exception occurred:- " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -139,37 +174,7 @@ public class ForgotPasswordController {
             throw new IOException("Failed to send password reset email. Error: " + ex.getMessage());
         }
     }
-    public void sendMail(String subject, String recepientName, String recepientEmail, String content) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure API key authorization: api-key
-        ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-        apiKey.setApiKey("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");
 
-        try {
-            TransactionalEmailsApi api = new TransactionalEmailsApi();
-            SendSmtpEmailSender sender = new SendSmtpEmailSender();
-            sender.setEmail("g.meda69@gmail.com");
-            sender.setName("Ryma");
-            List<SendSmtpEmailTo> toList = new ArrayList<>();
-            SendSmtpEmailTo to = new SendSmtpEmailTo();
-            to.setEmail(recepientEmail); // to make dynamic
-            to.setName(recepientName); // to make dynamic
-            toList.add(to);
-
-            SendSmtpEmail sendSmtpEmail = new SendSmtpEmail();
-            sendSmtpEmail.setSender(sender);
-            sendSmtpEmail.setTo(toList);
-            sendSmtpEmail.setTemplateId(1L);
-            sendSmtpEmail.setHtmlContent("<html><body>" + content + "</body></html>");
-            sendSmtpEmail.setSubject(subject);
-
-            CreateSmtpEmail response = api.sendTransacEmail(sendSmtpEmail);
-            System.out.println(response.toString());
-        } catch (Exception e) {
-            System.out.println("Exception occurred:- " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
 
 }
